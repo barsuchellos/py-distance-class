@@ -2,7 +2,7 @@ from typing import Self
 
 
 class Distance:
-    def __init__(self, km: int) -> None:
+    def __init__(self, km: int | float) -> None:
         self.km = km
 
     def __str__(self) -> str:
@@ -27,20 +27,20 @@ class Distance:
     def __mul__(self, other: int | float) -> Self:
         return Distance(km=self.km * other)
 
-    def __truediv__(self, other: int | float | Self) -> Self:
+    def __truediv__(self, other: int | float) -> Self:
         return Distance(km=round(self.km / other, 2))
 
-    def __lt__(self, other: Self | int | float) -> bool:
+    def __lt__(self, other: int | float) -> bool:
         return True if self.km < other else False
 
-    def __gt__(self, other: Self) -> bool:
+    def __gt__(self, other: int | float) -> bool:
         return True if self.km > other else False
 
-    def __eq__(self, other: Self) -> bool:
+    def __eq__(self, other: int | float) -> bool:
         return True if self.km == other else False
 
-    def __le__(self, other: Self) -> bool:
+    def __le__(self, other: int | float) -> bool:
         return True if self.km <= other else False
 
-    def __ge__(self, other: Self) -> bool:
+    def __ge__(self, other: int | float) -> bool:
         return True if self.km >= other else False
